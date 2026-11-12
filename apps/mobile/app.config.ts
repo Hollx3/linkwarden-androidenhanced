@@ -133,10 +133,9 @@ const config: ExpoConfig = {
       origin: false,
     },
     eas: {
-      projectId: "34f82639-7a25-4ebe-81c8-2db521b612cf",
+      projectId: "f9a454b2-2209-4b43-9990-9e8879a50097",
     },
   },
-  owner: "linkwarden",
 };
 
 export default config;
