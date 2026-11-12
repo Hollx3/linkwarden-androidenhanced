@@ -69,7 +69,7 @@ const config: ExpoConfig = {
         microphonePermission: false,
       },
     ],
- [
+    [
       "expo-share-intent",
       {
         iosAppGroupIdentifier: "group.app.linkwarden",
@@ -78,3 +78,65 @@ const config: ExpoConfig = {
         androidIntentFilters: ["text/*"],
       },
     ],
+    [
+      "expo-build-properties",
+      {
+        android: {
+          enableProguardInReleaseBuilds: true,
+          extraProguardRules: "-keep public class com.horcrux.svg.** {*;}",
+          allowBackup: false,
+          compileSdkVersion: 36,
+          targetSdkVersion: 36,
+          buildToolsVersion: "36.0.0",
+          usesCleartextTraffic: true,
+        },
+        ios: {
+          extraPods: [
+            { name: "GoogleUtilities", modular_headers: true },
+            { name: "RecaptchaInterop", modular_headers: true },
+          ],
+          enableSceneSupport: true,
+        },
+      },
+    ],
+    [
+      "react-native-edge-to-edge",
+      {
+        android: {
+          parentTheme: "Default",
+          enforceNavigationBarContrast: false,
+        },
+      },
+    ],
+    "./plugins/with-daynight-transparent-nav",
+    "./plugins/with-network-security-config",
+    "./plugins/with-gradle-memory",
+    "expo-font",
+    "expo-web-browser",
+    "expo-apple-authentication",
+    [
+      "expo-navigation-bar",
+      {
+        style: "dark",
+      },
+    ],
+  ],
+  experiments: {
+    typedRoutes: true,
+  },
+  androidStatusBar: {
+    backgroundColor: "#ffffff",
+    barStyle: "dark-content",
+    translucent: false,
+  },
+  extra: {
+    router: {
+      origin: false,
+    },
+    eas: {
+      projectId: "f9a454b2-2209-4b43-9990-9e8879a50097",
+    },
+  },
+};
+
+export default config;
