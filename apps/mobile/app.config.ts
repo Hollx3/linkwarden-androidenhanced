@@ -2,7 +2,8 @@ import { ExpoConfig } from "expo/config";
 
 const config: ExpoConfig = {
   name: "Linkwarden",
-  slug: "linkwarden",
+  slug: "linkwardenfix",
+  owner: "hollx3",
   version: "1.4.5",
   orientation: "portrait",
   icon: "./assets/images/icon.png",
@@ -73,69 +74,4 @@ const config: ExpoConfig = {
       {
         iosAppGroupIdentifier: "group.app.linkwarden",
         iosActivationRules:
-          'SUBQUERY (extensionItems, $extensionItem, SUBQUERY ($extensionItem.attachments, $attachment, (ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.url" OR ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.text" OR ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.plain-text")).@count > 0).@count > 0',
-        androidIntentFilters: ["text/*"],
-      },
-    ],
-    [
-      "expo-build-properties",
-      {
-        android: {
-          enableProguardInReleaseBuilds: true,
-          extraProguardRules: "-keep public class com.horcrux.svg.** {*;}",
-          allowBackup: false,
-          compileSdkVersion: 36,
-          targetSdkVersion: 36,
-          buildToolsVersion: "36.0.0",
-          usesCleartextTraffic: true,
-        },
-        ios: {
-          extraPods: [
-            { name: "GoogleUtilities", modular_headers: true },
-            { name: "RecaptchaInterop", modular_headers: true },
-          ],
-          enableSceneSupport: true,
-        },
-      },
-    ],
-    [
-      "react-native-edge-to-edge",
-      {
-        android: {
-          parentTheme: "Default",
-          enforceNavigationBarContrast: false,
-        },
-      },
-    ],
-    "./plugins/with-daynight-transparent-nav",
-    "./plugins/with-network-security-config",
-    "./plugins/with-gradle-memory",
-    "expo-font",
-    "expo-web-browser",
-    "expo-apple-authentication",
-    [
-      "expo-navigation-bar",
-      {
-        style: "dark",
-      },
-    ],
-  ],
-  experiments: {
-    typedRoutes: true,
-  },
-  androidStatusBar: {
-    backgroundColor: "#ffffff",
-    barStyle: "dark-content",
-    translucent: false,
-  },
-  extra: {
-    router: {
-      origin: false,
-    },
-    eas: {
-      projectId: "f9a454b2-2209-4b43-9990-9e8879a50097",
-    },
-  },
-};
-
-export default config;
+          'SUBQUERY (extensionItems, $extensionItem
