@@ -3,7 +3,7 @@ import { ExpoConfig } from "expo/config";
 const config: ExpoConfig = {
   name: "Linkwarden",
   slug: "linkwardenfix",
-  owner: "hollx3",
+  owner: "hollx3s-team",
   version: "1.4.5",
   orientation: "portrait",
   icon: "./assets/images/icon.png",
