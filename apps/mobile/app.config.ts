@@ -69,9 +69,12 @@ const config: ExpoConfig = {
         microphonePermission: false,
       },
     ],
-    [
+ [
       "expo-share-intent",
       {
         iosAppGroupIdentifier: "group.app.linkwarden",
         iosActivationRules:
-          'SUBQUERY (extensionItems, $extensionItem
+          'SUBQUERY (extensionItems, $extensionItem, SUBQUERY ($extensionItem.attachments, $attachment, (ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.url" OR ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.text" OR ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.plain-text")).@count > 0).@count > 0',
+        androidIntentFilters: ["text/*"],
+      },
+    ],
